@@ -2,11 +2,12 @@
 
 public class TreeNode
 {
-  private Object item;
+  private LetterFreq item;
   private TreeNode leftChild;
   private TreeNode rightChild;
+  
 
-  public TreeNode(Object newItem)
+  public TreeNode(LetterFreq newItem)
   {
   // Initializes tree node with item and no children.
     item = newItem;
@@ -14,7 +15,7 @@ public class TreeNode
     rightChild = null;
   }  // end constructor
 
-  public TreeNode(Object newItem,
+  public TreeNode(LetterFreq newItem,
                   TreeNode left, TreeNode right)
                   {
   // Initializes tree node with item and
@@ -24,13 +25,13 @@ public class TreeNode
     rightChild = right;
   }  // end constructor
 
-  public Object getItem()
+  public LetterFreq getItem()
   {
   // Returns the item field.
     return item;
   }  // end getItem
 
-  public void setItem(Object newItem)
+  public void setItem(LetterFreq newItem)
   {
   // Sets the item field to the new value newItem.
   item  = newItem;
@@ -59,4 +60,12 @@ public class TreeNode
   // Sets the right child reference to right.
     rightChild  = right;
   }  // end setRight
+
+  @Override
+  public String toString() {
+    return "TreeNode [item=" + item + ", leftChild=" + leftChild + ", rightChild=" + rightChild + "]";
+  }
+
+  
+
 }  // end TreeNode

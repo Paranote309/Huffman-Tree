@@ -7,6 +7,7 @@ public class ListReferenceBased implements ListInterface
   // reference to linked list of items
   private Node head;
   private int numItems; // number of items in list
+  
 
   public ListReferenceBased()
   {
@@ -23,11 +24,6 @@ public class ListReferenceBased implements ListInterface
   {
     return numItems;
   }  // end size
-
-  // private TreeNode findTreeNode(int index)
-  // {
-  //   TreeNode 
-  // }
 
   private Node find(int index)
   {
@@ -152,6 +148,34 @@ public class ListReferenceBased implements ListInterface
     head = null;
     numItems = 0;
   } // end removeAll
+
+  public void replace(int index, Object o)
+  {
+    if (index >= 1 && index <= numItems)
+    {
+      // get reference to node, then data in node
+      Node curr = find(index);
+      curr.setItem(o);
+    }
+    else
+    {
+      throw new ListIndexOutOfBoundsException(
+                     "List index out of bounds exception on replace");
+    } // end if
+  }
+
+  public void bubbleSort()
+  {
+    int n = this.size();
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 1; j < n - i ; j++)
+                if (((TreeNode)this.get(j)).getItem().getFreq() > ((TreeNode)this.get(j+1)).getItem().getFreq()) {
+                    // swap this.get(j+1] and this.get(j]
+                    Object temp = this.get(j);
+                    this.replace(j,this.get(j+1));
+                    this.replace(j+1,temp); 
+                }
+  }
 
 
 } // end ListReferenceBased
